@@ -23,9 +23,11 @@ chrome.webNavigation.onBeforeNavigate.addListener(function(data) {
 
             // check if request comes from a block explorer search
             if (
+              url.href.startsWith("https://etherscan.io/search?") ||
               url.href.startsWith("https://optimistic.etherscan.io/search?") ||
               url.href.startsWith("https://polygonscan.com/search?") ||
-              url.href.startsWith("https://arbiscan.io/search?")
+              url.href.startsWith("https://arbiscan.io/search?") ||
+              url.href.startsWith("https://testnet.arbiscan.io/search?")
             ) {
               // if so, redirect user to domain owner's address page on block explorer
               getDomainHolder(domainName, tldData.address, tldData.chainId).then(function(resp) {
