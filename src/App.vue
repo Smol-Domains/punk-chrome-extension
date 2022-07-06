@@ -13,11 +13,11 @@
 
     <div class="container">
       <template v-if="domIsReady">
+        <div v-if="status==='Enabled'" class="ext-status ext-status-green"/>
+        <div v-else class="ext-status ext-status-red"/>
         <div class="d-flex justify-content-between align-items-center padding-x"> 
-          <div class="d-flex align-items-center">
-            <div v-if="status==='Enabled'" class="ext-status ext-status-green"/>
-            <div v-else class="ext-status ext-status-red"/>
-            <img height="90px" class="mb-2" src="smoldomain-logo.png" />
+          <div class="status-container">
+            <img height="37px" class="mb-2" src="thickerlogo.png" />
           </div>
           <h1 class="d-flex align-items-center text-white">
             Smol Domains
@@ -37,6 +37,9 @@
             class="form-control text-center" 
             placeholder="Enter domain name"
           >
+          <div class="input-suffix">
+            <span> .smol </span>
+          </div>
           <button
             @click="goToUrl" 
             class="eightbit-btn"
@@ -162,17 +165,14 @@ export default {
       this.errorMessage = null;
       this.loading = true;
 
-      if (this.domainEntry && this.domainEntry.includes(".") && !this.domainEntry.includes(" ")) {
-        const queryParts = this.domainEntry.split(".");
-
-        if (queryParts.length === 2) {
-          const domainName = queryParts[0].toLowerCase();
-          const tld = "." + queryParts[1].toLowerCase();
+      if (this.domainEntry && !this.domainEntry.includes(".") && !this.domainEntry.includes(" ")) {
+        const domainName = this.domainEntry.toLowerCase();
+        const tld = ".smol";
 
           if (Object.keys(getTlds()).includes(tld)) {
             const tldData = getTlds()[tld];
 
-            getDomainDataUrl(domainName, queryParts[1].toLowerCase(), tldData.address, tldData.chainId, this.mode).then(function(result) {
+            getDomainDataUrl(domainName, 'smol', tldData.address, tldData.chainId, this.mode).then(function(result) {
               if (result && result.startsWith("http")) {
                 window.open(result, '_blank').focus();
                 this.loading = false;
@@ -184,11 +184,7 @@ export default {
           } else {
             this.errorMessage = "This TLD does not exist in Punk Domains.";
             this.loading = false;
-          }
-        } else {
-          this.errorMessage = "Incorrect domain.";
-          this.loading = false;
-        }
+          } 
       } else {
         this.errorMessage = "Incorrect entry.";
         this.loading = false;

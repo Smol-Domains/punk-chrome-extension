@@ -13,7 +13,7 @@ module.exports = {
       'webNavigation'
     ],
     icons: { 
-      100: "logo.png"
+      100: "thickerextlogo.png"
     },
     action: {
       default_popup: 'index.html'

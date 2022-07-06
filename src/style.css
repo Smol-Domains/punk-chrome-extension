@@ -8,24 +8,46 @@ body {
   padding-bottom: 20px;
 }
 
+.status-container {
+  padding-left: 15px;
+}
+
 .ext-status {
   border-radius: 50%;
   height: 11px;
-  width: 11px;
+  width: 11px; 
+  margin-left: 4px;
 }
 
 .ext-status-green {
-  background-color: green;
+  border: solid #017c01 2px;
+  background-color: #00c800;
 }
 
 .ext-status-red {
-  background-color: red;
+  border: solid #d40101 2px;
+  background-color: #ff0000;
 }
 
 .form-control,.form-control:focus {
   border-radius: 0;
   font-size: 20px;
   box-shadow: 4px 4px rgba(19, 19, 19, 0.153);
+}
+
+.input-suffix { 
+  height: 2px;
+  text-align: right;
+}
+
+.input-suffix span {
+  position: relative;
+  padding: 10px 15px; 
+  top: -37px;
+  width: 30px;
+  background: rgba(225, 225, 225, 0.398);
+  font-size: 20px;
+  color: rgb(97, 97, 97);
 }
 
 .container {
