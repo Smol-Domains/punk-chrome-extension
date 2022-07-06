@@ -17,7 +17,7 @@
           <div class="d-flex align-items-center">
             <div v-if="status==='Enabled'" class="ext-status ext-status-green"/>
             <div v-else class="ext-status ext-status-red"/>
-            <img height="40px" class="mb-2" src="logo-white512.png" />
+            <img height="90px" class="mb-2" src="smoldomain-logo.png" />
           </div>
           <h1 class="d-flex align-items-center text-white">
             Smol Domains
@@ -166,13 +166,13 @@ export default {
         const queryParts = this.domainEntry.split(".");
 
         if (queryParts.length === 2) {
-          const domainName = queryParts[0];
-          const tld = "." + queryParts[1];
+          const domainName = queryParts[0].toLowerCase();
+          const tld = "." + queryParts[1].toLowerCase();
 
           if (Object.keys(getTlds()).includes(tld)) {
             const tldData = getTlds()[tld];
 
-            getDomainDataUrl(domainName, queryParts[1], tldData.address, tldData.chainId, this.mode).then(function(result) {
+            getDomainDataUrl(domainName, queryParts[1].toLowerCase(), tldData.address, tldData.chainId, this.mode).then(function(result) {
               if (result && result.startsWith("http")) {
                 window.open(result, '_blank').focus();
                 this.loading = false;
