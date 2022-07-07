@@ -1,4 +1,6 @@
-# Punk Domains Chrome Extension
+# Smol Domains Chrome Extension
+
+Forked from Punk Domains.
 
 ### Development
 
@@ -9,7 +11,7 @@ npm install
 npm run serve
 ```
 
-Go to Chrome > Extensions > Load unpacked (find the dist folder)
+Go to Chrome > Extensions > Load unpacked (find the dist folder).
 
 ### Publish
 

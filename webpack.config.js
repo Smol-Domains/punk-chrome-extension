@@ -19,8 +19,11 @@ const plugins = [
   }),
   new CopyPlugin({
     patterns: [
-      { from: "src/assets/img/logo.png" },
-      { from: "src/assets/img/logo-white512.png" },
+      { from: "src/assets/img/thickerextlogo.png" },
+      { from: "src/assets/img/thickerlogo.png" },
+      { from: "src/assets/img/cloud1.svg" },
+      { from: "src/assets/img/cloud2.svg" },
+      { from: "src/assets/img/cloud3.svg" },
       { from: "src/assets/html/loading.html" },
     ],
   }),

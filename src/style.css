@@ -1,38 +1,146 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap');
-
 body {
-  font-family: 'Roboto Condensed', sans-serif;
-  background: linear-gradient(90deg, hsla(265, 75%, 26%, 1) 0%, hsla(365, 75%, 26%, 1) 100%);
-  color: #DBDFEA;
-  width: 400px;
+  font-family: 'VT323', monospace;
+  color: #101010;
+  width: 390px;
+  background-color: lightblue;
+  overflow: hidden;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.status-container {
+  padding-left: 15px;
+}
+
+.ext-status {
+  border-radius: 50%;
+  height: 11px;
+  width: 11px; 
+  margin-left: 4px;
+}
+
+.ext-status-green {
+  border: solid #017c01 2px;
+  background-color: #00c800;
+}
+
+.ext-status-red {
+  border: solid #d40101 2px;
+  background-color: #ff0000;
+}
+
+.form-control,.form-control:focus {
+  border-radius: 0;
+  font-size: 20px;
+  box-shadow: 4px 4px rgba(19, 19, 19, 0.153);
+}
+
+.input-suffix { 
+  height: 2px;
+  text-align: right;
+}
+
+.input-suffix span {
+  position: relative;
+  padding: 10px 15px; 
+  top: -37px;
+  width: 30px;
+  background: rgba(225, 225, 225, 0.398);
+  font-size: 20px;
+  color: rgb(97, 97, 97);
 }
 
 .container {
-  padding: 20px;
+  position: relative;
+  z-index: 1;
 }
 
-.btn-primary, .btn-primary:active, .btn-primary:focus, .btn-primary:disabled {
-  background: transparent;
-  border-color: #DBDFEA;
-  box-shadow: none;
-  color: #DBDFEA;
+/* animated cloud bg */
+.float-cloud-1 {
+  position: absolute;
+  top: 40%;
+  left: -60%;
+  right: auto;
+  animation: cloudFloat 40s linear infinite;
 }
 
-.btn-primary:hover {
-  color: black;
-  border-color: #ffffff;
-  background: #ffffff;
+.float-cloud-2 {
+  position: absolute;
+  top: 13%;
+  left: -80%;
+  right: auto;
+  animation: cloudFloat 24s linear infinite;
 }
 
-.btn-secondary, .btn-secondary:active, .btn-secondary:focus, .btn-secondary:disabled {
-  background: white;
-  border-color: black;
-  box-shadow: none;
-  color: black;
+.float-cloud-3 {
+  position: absolute;
+  top: 65%;
+  left: -60%;
+  right: auto;
+  animation: cloudFloat 19s linear infinite;
 }
 
-.btn-secondary:hover {
-  color: black;
-  border-color: #ffffff;
-  background: #ffffff;
+@keyframes cloudFloat {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(150vmax, 0, 0);
+  }
+}
+
+/* custom button */
+.btn--container {
+  height: 69px;
+}
+
+.eightbit-btn {
+  margin-top: 15px;
+  background: #92CD41;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  font-size: 16px;
+  padding: 5px 15px;
+  text-decoration: none;
+  color: white;
+  box-shadow: inset -4px -4px 0px 0px #4AA52E;
+}
+
+.eightbit-btn:hover, .eightbit-btn:focus {
+  background: #76c442;
+  box-shadow: inset -4px -4px 0px 0px #4AA52E;
+}
+
+.eightbit-btn:active {
+  box-shadow: inset 4px 4px 0px 0px #4AA52E;
+}
+
+.eightbit-btn:before, .eightbit-btn:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-sizing: content-box;
+}
+
+.btn--common {
+  width: 160px;
+  height: 40px;
+  font-size: 18px;
+  background-color: rgb(82, 82, 82);
+}
+
+.btn--common {
+  background: #edcb0f;
+  box-shadow: inset -4px -4px 0px 0px #db9107;
+}
+
+.btn--common:hover, .btn--common:focus {
+  background: #F2C409;
+  box-shadow: inset -4px -4px 0px 0px #E59400;
+}
+
+.btn--common:active {
+  box-shadow: inset 4px 4px 0px 0px #E59400;
 }
